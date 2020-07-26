@@ -1,0 +1,44 @@
+<html>
+  <title>Health Spend Predictor App</title>
+  <head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+
+    <p> People are often unsure about how much of money they should spend on healthcare related issues every year. 
+    It is therefore necessary to determine healthcare expenditure based on users' 
+    personal transaction history as well as their attributes or characteristics that define them.
+    The model designed in this repo uses a simple statistical model (Random Forest Classifier) to make 
+    informed predictions on how much of money a user may need to save for expense
+    related to healthcare.
+    <\p>
+
+    <p> The user is asked to enter Income/Amount Threshold (threshold value
+    for grouping individuals into different income/expenditure categories),
+    nclasses (number of health expenditure groups), and Break-Points that refer
+    to the end points of each group. The last group by default is chosen to
+    have an endpoint of $3,000.
+    <\p>
+
+    <form action = "{{url_for('result')}}"  method="POST">
+      <h3>Threshold for Income and Expenditure</h3>
+      
+      Income Threshold<br>
+      <input type = 'text' name = 'income_thresh' /></br>
+
+      Amount Threshold<br>
+      <input type = 'text' name = 'amt_thresh' /></br>
+
+      Number of Amount Classes<br>
+      <input type = 'text' name = 'nclasses' /></br>
+
+      Break-Points<br>
+      <input type = 'text' name = 'breakpoints' /></br>
+    
+      <input type="submit"  value="Generate Amount "/>
+
+    </form>
+
+    {% endblock %}
+  </body>
+</html>

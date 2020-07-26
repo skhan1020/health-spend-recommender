@@ -1,0 +1,27 @@
+<html>
+  <title>Random Forest Results</title>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+
+    <p>
+    Given below are the Precision-Recall, ROC Curves and Confusion Matrix
+    for a threshold value of 0.5 that summarize our results. The most optimal
+    classifier can be determined from the Precision Recall in the neighborhood
+    of the inflection point. The AUC values for
+    the ROC curves are indicators of model performance. 
+    <\p>
+
+    <h1> Precision-Recall Curves </h1>
+    {%  for item in graph1.values() %}
+      <div><img src='{{ item }}'></img></div>
+    {% endfor %}
+    <h1> ROC Curves </h1>
+    {%  for item in graph2.values() %}
+      <div><img src='{{ item }}'></img></div>
+    {% endfor %}
+    <h1> Confusion Matrix </h1>
+    <div><img src='{{ graph3 }}'></img></div>
+    {% endblock %}
+  </body>
+  <html>

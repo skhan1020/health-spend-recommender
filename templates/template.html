@@ -1,0 +1,25 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask Parent Template</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='template.css') }}">
+    <!--<link rel="stylesheet" type="text/css" href="/User/souratoshkhan/Twitter-Sentiment/Stock-Prediction-Keras/webapp/">-->
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">Health Spend Recommender</h1>
+        <strong><nav>
+            <ul class="menu">
+              <li><a href="{{ url_for('parameters') }}">Home</a></li>
+              <li><a href="{{ url_for('result') }}">Results</a></li>
+            </ul>
+          </nav></strong>
+        </div>
+      </header>
+
+      {% block content %}
+      {% endblock %}
+
+    </body>
+  </html>
